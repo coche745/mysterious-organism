@@ -18,6 +18,7 @@ To better simulate all the possible DNA of the P. aequor, I have created code th
 + Determine whether the P. aequor is likely to survive
 + Find the complement DNA strand of the P. aequor
 + Find the two most related P. aequors based on DNA out of a lot of different P. aequors.
+
 You can see examples of these features by running the project on your own computer.
 
 ## Technologies
