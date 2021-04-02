@@ -13,11 +13,13 @@ const mockUpStrand = () => {
   return newStrand;
 };
 
+// Creates a P. aequor Organism
 const pAequorFactory = (num, arr) => {
   return {
     specimenNum: num,
     dna: arr,
     
+    // simulates P. aequor mutation
     mutate () {
       let randIndex = Math.floor(Math.random() * 15);
       let randBase = this.dna[randIndex];
@@ -31,7 +33,8 @@ const pAequorFactory = (num, arr) => {
       }
       return this.dna;
     },
-  
+
+    // compares percentage similarity of two P. aequors' DNA
     compareDNA (pAequorObj) {
       let count = 0;
       let dnaLen = this.dna.length;
@@ -45,6 +48,7 @@ const pAequorFactory = (num, arr) => {
       return percentSimilar;
     },
 
+    // Determines whether the P. aequor will likely survive based on it's DNA
     willLikelySurvive () {
       let count = 0;
       for (let i = 0; i < this.dna.length; i++) {
@@ -56,6 +60,7 @@ const pAequorFactory = (num, arr) => {
       return percentCG >= 60;
     },
 
+    // Finds a complement DNA strand for the P. Aequor, G-C, T-A etc.
     complementStrand () {
       let newStrand = [];
       for (let i = 0; i < this.dna.length; i++) {
@@ -76,6 +81,7 @@ const pAequorFactory = (num, arr) => {
 
 const instancesArr = [];
 
+// Creating an array of 30 P. aequors
 for (i = 0; i < 30; i++) {
   let newStrand = mockUpStrand();
   let newPAequor = pAequorFactory(i + 1, newStrand);
@@ -86,6 +92,7 @@ for (i = 0; i < 30; i++) {
   instancesArr.push(newPAequor);
 }
 
+// Finds the two most similar P. aequors from a list, based on their DNA
 const findMostRelated = (arr) => {
   let maxPercent = 0;
   let mostRelatedArr = [];
